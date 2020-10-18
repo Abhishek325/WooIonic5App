@@ -1,0 +1,14 @@
+<ion-list>
+  <ion-list-header>
+    <h4>You may also like</h4>
+  </ion-list-header>
+  <ion-item lines="none" *ngFor="let item of relatedItems" routerLink='/home/product/{{item.id}}'>
+    <ion-avatar slot="start">
+      <img [src]="item.images[0].src">
+    </ion-avatar>
+    <ion-label>
+      <h2>{{item.name}}</h2>
+      <p [innerHTML]="item.short_description"></p>
+    </ion-label>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,11 @@
+<ion-toolbar *ngIf="!showSearchToolbar">
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+  <ion-title *ngIf="!showSearchIcon">{{title}}</ion-title>
+  <ion-item *ngIf="showSearchIcon" class="ion-no-margin search-container" lines="none">
+    <ion-input placeholder="Search a product here" (click)="showSearchToolbar=true"></ion-input>
+  </ion-item>
+</ion-toolbar>
+<app-product-search-toolbar *ngIf="showSearchToolbar" (close)="showSearchToolbar=false"></app-product-search-toolbar>

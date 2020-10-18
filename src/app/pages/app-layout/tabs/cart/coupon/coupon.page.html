@@ -1,0 +1,23 @@
+<ion-header>
+  <app-toolbar title="Coupons"></app-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list *ngIf="!isLoading">
+    <ion-list-header>
+      Choose a coupon below
+    </ion-list-header>
+    <ion-item *ngFor="let coupon of coupons">
+      <ion-label>
+        <h2>{{coupon.code}}</h2>
+        <p>{{coupon.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-row *ngIf="isLoading" class="ion-align-items-center ion-justify-content-center ion-text-center"
+    style="height:95%">
+    <ion-col>
+      <ion-spinner name="dots"></ion-spinner>
+    </ion-col>
+  </ion-row>
+</ion-content>

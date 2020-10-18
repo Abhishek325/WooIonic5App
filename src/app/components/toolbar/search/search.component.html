@@ -1,0 +1,14 @@
+<ion-toolbar>
+  <ion-searchbar placeholder="Search a product here" showCancelButton="always" (ionCancel)="onCancelSearch()"
+    (ionClear)="searchMatchedItems=null" (ionInput)="getItems($event)" #searchbar></ion-searchbar>
+  <ion-list *ngIf="searchMatchedItems.length>0">
+    <ion-item *ngFor="let item of searchMatchedItems" lines="none" routerLink='/product/{{item.id}}'>
+      <ion-avatar slot="start">
+        <ion-img src="{{item.images[0].src}}"></ion-img>
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <p [innerHTML]='item.name' style='font-size: 15px;color: #222;'></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-toolbar>

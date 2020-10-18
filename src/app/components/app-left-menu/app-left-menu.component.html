@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>App menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list id="inbox-list">
+    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+      <ion-item (click)="selectedIndex = i" [routerLink]="[p.url]" detail="false" [class.selected]="selectedIndex == i">
+        <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+        <ion-label>{{ p.title }}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>Quick links</ion-list-header>
+    <ion-menu-toggle auto-hide="false" *ngFor="let link of quickLinks">
+      <ion-item [routerLink]="[link.url]">
+        <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+        <ion-label>{{ link.title }}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-list>
+  <ion-grid>
+    <ion-row padding>
+      <ion-col *ngFor="let link of socialLinks">
+        <a href="#" (click)="openLink(link.url)">
+          <ion-icon [name]="link.icon"></ion-icon>
+        </a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

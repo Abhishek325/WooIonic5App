@@ -1,0 +1,63 @@
+<ion-header>
+  <app-toolbar title="Cart"></app-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <h4>Items in your cart</h4>
+    </ion-list-header>
+    <ion-item *ngFor="let item of products">
+      <ion-avatar slot="start">
+        <ion-img src="{{item.meta.images[0].src}}"></ion-img>
+      </ion-avatar>
+      <ion-label class="ion-text-wrap" routerLink='/home/product/{{item.meta.id}}'>
+        <p [innerHTML]='item.meta.name'></p>
+        <small class="price">₹{{item.meta.price}} x {{item.cartInfo.quantity}}</small>
+      </ion-label>
+      <ion-label class="ion-text-right" style="margin-top: -1.5rem;">
+        <add-to-cart [product]="item.meta" [selectedVariation]="selectedVariation"
+          (onAdd)='onItemAdded($event,item.meta.id)' (onRemove)='onItemRemoved($event, item.meta.id)'></add-to-cart>
+      </ion-label>
+    </ion-item>
+    <ion-item class="coupon" routerLink="/home/cart/coupon">
+      Do you have a promo code?
+    </ion-item>
+    <ion-item class="ion-margin-top" lines="none" *ngIf="!isLoading">
+      <ion-grid class="ion-no-padding" style="margin-bottom: 3.5rem;">
+        <ion-row>
+          <ion-col size="6">
+            <ion-label class="label ion-float-left">
+              Sub total
+            </ion-label>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label class="label ion-float-right ion-text-right">
+              ₹ {{cartTotal}}
+            </ion-label>
+          </ion-col>
+          <ion-col size="6" class="ion-margin-top">
+            <ion-label class="label ion-float-left">
+              Shipping charge
+            </ion-label>
+          </ion-col>
+          <ion-col size="6" class="ion-margin-top">
+            <ion-label class="label ion-float-right ion-text-right">
+              ₹ 20
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <div *ngIf="isLoading">
+      <ion-item>
+        <ion-spinner name="dots"></ion-spinner>
+      </ion-item>
+    </div>
+  </ion-list>
+  <div class="bottom ion-no-padding">
+    <ion-button *ngIf="!isLoading" expand="full" routerLink='/home/login'>
+      Checkout
+    </ion-button>
+  </div>
+</ion-content>

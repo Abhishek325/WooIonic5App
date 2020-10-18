@@ -1,0 +1,43 @@
+<ion-header>
+  <app-toolbar [title]="product?product.name:'Loading...'"></app-toolbar>
+</ion-header>
+<ion-content *ngIf="product">
+  <ion-card>
+    <ion-slides *ngIf="product.images.length>1" pager>
+      <ion-slide *ngFor="let image of product.images">
+        <ion-img src="{{image.src}}"></ion-img>
+      </ion-slide>
+    </ion-slides>
+    <ion-img *ngIf="product.images.length==1" src="{{product.images[0].src}}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{product.name}}</ion-card-title>
+      <ion-card-subtitle>{{product.slug}}</ion-card-subtitle>
+      <ion-badge *ngIf="product.stock_status!=='instock'" color="danger" class="ion-margin-top">Out of stock</ion-badge>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="ion-text-justify" [innerHTML]="product.short_description"></p>
+    </ion-card-content>
+    <ion-row class="cardfooter">
+      <ion-col class="ion-no-padding" size="12" *ngIf="product.attributes.length>0 && variations.length>0" style="margin-top:-1rem;">
+        <app-variation-options [product]="product" [variations]="variations" (selectedVariation)="setVariation($event)"></app-variation-options>
+      </ion-col>
+      <ion-col [size]="6" class="ion-padding-horizontal ion-padding-top price-container">
+        <ion-label *ngIf="product.variations.length==0" [innerHTML]="product.price_html.replace('KG','kg')">
+        </ion-label>
+        <ion-label *ngIf="product.variations.length>0">
+          <ion-label *ngIf="selectedVariation">₹ {{selectedVariation.price}} /kg</ion-label> 
+          <div *ngIf="!selectedVariation">
+            <p class="message-text">Select parameters above to buy this item</p>
+          </div>
+        </ion-label>
+      </ion-col>
+      <ion-col size="6" class="ion-padding">
+        <add-to-cart [product]="product" [selectedVariation]="selectedVariation"></add-to-cart>
+      </ion-col>
+      <ion-col class="ion-no-padding" size="12">
+        <app-product-review [product]="product"></app-product-review>
+        <app-related-products *ngIf="product.related_ids.length>0" [product]="product"></app-related-products>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

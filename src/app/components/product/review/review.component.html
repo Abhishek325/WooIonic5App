@@ -1,0 +1,25 @@
+<ion-list style="margin-top:0.15rem">
+  <ion-list-header>
+    <h4>Reviews</h4>
+  </ion-list-header>
+  <ion-item lines="none" style="margin-top:-0.5rem" *ngIf="product.average_rating.toString()!=='0.00'">
+    <rating [rate]="product.average_rating" readonly="true" size="small" style="margin-left:-0.85rem"></rating>
+  </ion-item>
+  <div *ngFor="let review of reviews">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-img src="{{review.reviewer_avatar_urls['96']}}"></ion-img>
+      </ion-avatar>
+      <ion-label [innerHTML]="review.reviewer + review.review" class="ion-text-wrap"></ion-label>
+    </ion-item>
+    <div style="margin-top: -1.25rem;margin-left: 1rem;">
+      <rating [rate]="review.rating" readonly="true" size="small"></rating>
+    </div>
+  </div>
+  <ion-item *ngIf="loading">
+    <ion-spinner name="dots"></ion-spinner>
+  </ion-item>
+  <ion-item lines="none" *ngIf="reviews.length==0 && !loading">
+    No review yet
+  </ion-item>
+</ion-list>

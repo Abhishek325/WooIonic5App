@@ -1,0 +1,36 @@
+<div *ngIf="!isLoading">
+  <ion-list>
+    <ion-item *ngFor="let product of products" routerLink="/home/product/{{product.id}}">
+      <ion-avatar slot="start">
+        <img [src]="product.images[0].src">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{product.name}}</h2>
+        <p *ngIf="product.variations.length==0" [innerHTML]="product.price_html"></p>
+        <p *ngIf="product.variations.length!=0" [innerHTML]="product.price_html"></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll threshold="10px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading products...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>
+<ion-list *ngIf="isLoading">
+  <ion-item lines="none" *ngFor="let i of [].constructor(3)">
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-list>

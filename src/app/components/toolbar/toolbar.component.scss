@@ -1,0 +1,19 @@
+ion-menu-button, ion-title, ion-back-button, ion-icon {
+    color: var(--ion-color-primary-contrast);
+    text-transform: capitalize;
+}
+
+ion-toolbar {
+    --background: var(--ion-color-primary);
+}
+
+.search-container {
+    --background:none;
+    margin-left:-0.85rem;
+
+    ion-input {
+        --color:#fff;
+        --padding-bottom: 8px;
+        font-size:19px;
+    }
+}

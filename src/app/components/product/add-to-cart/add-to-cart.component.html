@@ -1,0 +1,33 @@
+<div *ngIf="product.variations.length===0" [ngClass]="{'mr-1':!showIcon, 'mr-0':showIcon}">
+  <ion-button expand="full" *ngIf="quantity===0 && product.stock_status==='instock'" (click)="addItemToCart()">
+    <ion-icon name="cart" *ngIf="showIcon"></ion-icon> &nbsp;
+    {{addToCartText || 'Add to cart'}}
+  </ion-button>
+  <ion-buttons *ngIf="quantity>0" class="ion-float-right" style="margin-top: 0.35rem;">
+    <ion-button (click)="removeItemFromCart()">
+      <ion-icon name="remove"></ion-icon>
+    </ion-button>
+    <ion-button class="quantity" disabled="true">
+      {{quantity}}
+    </ion-button>
+    <ion-button (click)="addItemToCart()">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</div>
+<div *ngIf="product.variations.length>0 && selectedVariation" style="position: absolute;">
+  <ion-button expand="full" *ngIf="selectedVariation && quantity===0 " margin
+    (click)="addVariationToCart(selectedVariation.id)">Add to cart
+  </ion-button>
+  <ion-buttons *ngIf="quantity>0" class="ion-float-right" style="margin-top: 0.5rem;">
+    <ion-button (click)="removeVariationFromCart(selectedVariation.id)">
+      <ion-icon name="remove"></ion-icon>
+    </ion-button>
+    <ion-button clear disabled="true" style="font-size:1rem">
+      {{quantity}}
+    </ion-button>
+    <ion-button (click)="addVariationToCart(selectedVariation.id)">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</div>

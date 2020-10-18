@@ -1,0 +1,9 @@
+<ion-header>
+  <app-toolbar [title]="page?page.title.rendered:'Loading....'"></app-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item >
+    <div *ngIf="page" [innerHTML]="page.content.rendered"></div>
+    <div *ngIf="!page">Loading, please wait...</div>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <app-toolbar title="Login"></app-toolbar>
+</ion-header>
+<ion-content class="ion-text-center">
+  <ion-row class="ion-align-items-center ion-justify-content-center ion-text-center" style="height:95%">
+    <ion-col size="12">
+      <div class="ion-text-center" style="margin-top: -6rem;">
+        <h4>Welcome</h4>
+        <p>Just a step away from the Wooow exeprience</p>
+      </div><br>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input #userid></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" #password></ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="ion-text-right ion-margin">
+        <a class="link" href="#"
+          onclick="window.open('https://meetthemeat.in/my-account/lost-password/', '_system', 'location=yes'); return false;">
+          Forgot your password?
+        </a>
+      </div>
+      <div style="padding: 0 0.75rem;">
+        <ion-button expand="full" (click)="authenticate(userid.value, password.value)" [disabled]="loading">
+          <span *ngIf="!loading">
+            Proceed
+          </span>
+          <span *ngIf="loading">
+            <ion-spinner name="dots"></ion-spinner>
+          </span>
+        </ion-button>
+        </div> 
+    </ion-col>
+  </ion-row>
+  <div class="bottom">
+    <ion-row>
+      <ion-col size="6">
+        <ion-button class="social-login-btn" (click)="loginWithGoogle()">
+          <ion-icon name="logo-google"></ion-icon> &nbsp;Login with Google
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button class="social-login-btn" (click)="loginWithFacebook()">
+          <ion-icon name="logo-facebook"></ion-icon> &nbsp;Login with Facebook
+        </ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <p>Don't have an account? Register</p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

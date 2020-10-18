@@ -1,0 +1,44 @@
+@mixin card-element {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+  }
+  
+  .card-background-page {
+  
+      ion-card {
+        position: relative;
+        text-align: center;
+
+        img {
+          height: 100px;
+          width: 100%;
+          margin-bottom: -0.25rem;
+        }
+      }
+    
+      .card-title {
+        @include card-element;
+        top: 36%;
+        font-size: 2.0em;
+        font-weight: bold;
+        text-shadow: 2px 4px 2px #222;
+        text-transform: capitalize
+      }
+    
+      .card-subtitle {
+        @include card-element;
+        top: 52%;
+        font-size: 1.0em;
+        margin-top:0.75rem;
+        text-shadow: 1px 3px 2px #222;
+      }
+    
+  }
+  
+  .tile {
+      width: 50%;
+      height: 100px;
+      margin: 4px;
+      padding: 0;
+  }

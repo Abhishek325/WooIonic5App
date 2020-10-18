@@ -1,0 +1,12 @@
+<ion-list lines="none" class="ion-no-padding">
+  <p *ngFor="let attribute of product.attributes;let i=index;">
+    <ion-item lines="none" *ngIf="attribute.visible" style="margin-bottom: -1.25rem;">
+      <ion-label color="medium">{{attribute.name}}</ion-label>
+      <ion-select placeholder="Select One" (ionChange)="onVariationSelected(attribute.name,$event)">
+        <ion-select-option [value]="option" class="ion-text-wrap" *ngFor="let option of attribute.options">
+          {{option}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </p>
+</ion-list>

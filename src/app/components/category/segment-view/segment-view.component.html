@@ -1,0 +1,7 @@
+<ion-card class="ion-no-margin ion-no-padding">
+  <ion-segment scrollable no-margin [value]="categoryId">
+    <ion-segment-button *ngFor="let category of categoryListForSegment"
+      (click)="onChange(category.id,category.name)" [value]="category.id">{{category.name}}
+    </ion-segment-button>
+  </ion-segment>
+</ion-card>

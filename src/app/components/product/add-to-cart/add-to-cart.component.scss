@@ -1,0 +1,17 @@
+.quantity {
+    color: #444;
+    font-size: 1.125rem;
+}
+
+@mixin mr($amount) {
+    position: absolute;
+    right: $amount*1rem;
+}
+
+.mr-1{
+    @include mr(1);
+}
+
+.mr-0 {
+    @include mr(0);
+}

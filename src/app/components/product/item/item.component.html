@@ -1,0 +1,29 @@
+<ion-card>
+  <div routerLink='/home/product/{{product.id}}'>
+    <img src="{{product.images[0].src}}">
+    <ion-badge class="ion-float-right" color="danger" *ngIf="product.average_rating!='0.00'"
+      style="margin: -2rem 0.5rem 0 0;">
+      <ion-icon name='star'></ion-icon> {{product.average_rating}} <i
+        style='font-weight:400'>({{product.rating_count}})</i>
+    </ion-badge>
+    <ion-card-content>
+      <ion-card-title>
+        {{product.name}}
+      </ion-card-title>
+      <p class="description" color="medium" *ngIf="product.stock_status!=='instock'">Out of stock</p>
+      <p class="ion-text-wrap" [innerHTML]="product.short_description.substr(0,100)+ ' ...'"></p>
+    </ion-card-content>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" class="ion-text-left ion-no-padding">
+        <p *ngIf="product.variations.length===0" [innerHTML]="product.price_html.replace('KG','kg')"
+          style="font-size:0.925rem;margin-left:0.5rem"></p>
+        <p *ngIf="product.variations.length>0" style="padding-left:0.5rem">Select a variation to buy</p>
+      </ion-col>
+      <ion-col *ngIf="product.variations.length===0" size="6" class="ion-text-right ion-no-padding">
+        <add-to-cart [product]="product" addToCartText="Add" showIcon="true"></add-to-cart>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

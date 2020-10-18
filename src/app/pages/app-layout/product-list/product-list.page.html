@@ -1,0 +1,21 @@
+<ion-header>
+  <app-toolbar [title]="headerTitle"></app-toolbar>
+  <app-category-segment-view (changed)="updateCheckedAttribute()"></app-category-segment-view>
+</ion-header>
+<ion-content>
+  <p class="cards-bg" *ngIf="productList.length>0">
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-no-padding">
+        <ion-col [ngClass]="{'gray-out':product.stock_status!=='instock'}" size-xs="12" size-sm="12" size-md="6"
+          size-lg="4" *ngFor="let product of productList" style="margin:-1rem 0 0.25rem 0">
+          <app-item [product]="product"></app-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </p>
+    <ion-row *ngIf="productList.length==0" class="ion-align-items-center ion-justify-content-center ion-text-center" style="height:95%">
+      <ion-col>
+        Loading...
+      </ion-col>
+    </ion-row>
+</ion-content>
