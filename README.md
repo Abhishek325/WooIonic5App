@@ -1,4 +1,4 @@
- ## WooCommerceApp
+ ## WooIonicApp
 
 ### What is this app all about?
 
@@ -8,7 +8,7 @@ This is an open source ionic template that consumes a `Woocommerce` based API. W
 
 > The project is an `angular` based `ionic` app
 
-These are the folders described:
+These are the main files and folders used:
 
 * **components** : Generic components are placed here.
 * **pages** : App pages to render the components as per route configuration.
