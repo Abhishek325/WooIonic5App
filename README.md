@@ -16,6 +16,10 @@ These are the folders described:
 * **app-routingModule.ts** : Routing configuration of the app
 * **http.interceptor.ts** : Application request inteceptor to have request making logic, authentication headers, token etc at one place.
 
+### Screenshots
+
+<img src="https://raw.githubusercontent.com/Abhishek325/WooIonicApp/main/screenshots/screenshot-1.png" width="200px"/> <img src="https://raw.githubusercontent.com/Abhishek325/WooIonicApp/main/screenshots/screenshot-2.png" width="200px" /> <img src="https://raw.githubusercontent.com/Abhishek325/WooIonicApp/main/screenshots/screenshot-3.png" width="200px" /> <img src="https://raw.githubusercontent.com/Abhishek325/WooIonicApp/main/screenshots/screenshot-4.png" width="200px" />
+
 ### Features
 - View products by category
 - Add/remove cart actions
