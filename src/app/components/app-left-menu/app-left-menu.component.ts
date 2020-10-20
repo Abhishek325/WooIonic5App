@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastService } from 'src/app/services/ui-controllers/toast.service';
+import { AuthService } from 'src/app/services/woocommerce/auth/service';
 
 @Component({
   selector: 'app-left-menu',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-left-menu.component.scss'],
 })
 export class AppLeftMenuComponent implements OnInit {
+
+  isAuthenticated = false;
 
   public appPages = [
     {
@@ -15,7 +20,7 @@ export class AppLeftMenuComponent implements OnInit {
     },
     {
       title: 'My Orders',
-      url: '/',
+      url: '/home/orders',
       icon: 'pizza'
     },
     {
@@ -55,13 +60,28 @@ export class AppLeftMenuComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router, private toastService: ToastService) { }
+
+  logout() {
+    this.authService.logout().then(res => {
+      this.toastService.presentToast('Adios, you have been logged out!');
+      this.router.navigate(['/home']);
+    });
+  }
 
   openLink(url:string){
     window.open(url, '_system', 'location=yes');
     return false;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authService.isAuthenticated().then(data => {
+      this.isAuthenticated = data;
+    })
+    //Subsequent
+    this.authService.authenticated.subscribe(res => {
+      this.isAuthenticated = res;
+    })
+  }
 
 }

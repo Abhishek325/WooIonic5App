@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { AuthService } from 'src/app/services/woocommerce/auth/service';
 import { CartService } from 'src/app/services/woocommerce/cart/service';
 
 @Component({
@@ -10,9 +11,10 @@ import { CartService } from 'src/app/services/woocommerce/cart/service';
 export class AppLayoutPage implements OnInit {
 
   cartItemCount: number;
+  isAuthenticated: boolean; 
   backButtonSubscription
 
-  constructor(private platform: Platform, private cartService: CartService) { }
+  constructor(private platform: Platform, private cartService: CartService, private authService: AuthService) { }
 
   ionViewDidEnter() {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
@@ -28,9 +30,15 @@ export class AppLayoutPage implements OnInit {
     this.cartService.getCartItems().then(data => {
       this.cartItemCount = (data || []).length;
     });
+    this.authService.isAuthenticated().then(data => {
+      this.isAuthenticated = data;
+    })
     // Subsequent times
     this.cartService.cart.subscribe(data => {
       this.cartItemCount = data;
     });
+    this.authService.authenticated.subscribe(res => {
+      this.isAuthenticated = res;
+    })
   }
 }

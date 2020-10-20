@@ -27,6 +27,7 @@ export class LoginPage implements OnInit {
     this.loading = true;
     this.authservice.getAuthToken({ username: userId, password: password }).subscribe(data => {
       this.token = data;
+      this.authservice.authenticated.emit(true);
       this.customerService.getCustomer(this.token.user_email).subscribe(d => {
         this.loading = false;
         this.storageService.set('user', d['customer']);

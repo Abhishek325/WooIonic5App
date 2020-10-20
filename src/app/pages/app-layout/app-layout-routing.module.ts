@@ -1,3 +1,4 @@
+import { importType } from '@angular/compiler/src/output/output_ast';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -23,11 +24,11 @@ const routes: Routes = [
       },
       {
         path: 'products-by-category',
-        loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
+        loadChildren: () => import('./product/product-list/product-list.module').then( m => m.ProductListPageModule)
       },
       {
         path: 'product',
-        loadChildren: () => import('./product-view/product-view.module').then( m => m.ProductViewPageModule)
+        loadChildren: () => import('./product/product-view/product-view.module').then( m => m.ProductViewPageModule)
       },
       {
         path: 'cart',
@@ -36,7 +37,15 @@ const routes: Routes = [
       {
         path: 'login',
         loadChildren: () => import('./tabs/login/login.module').then( m => m.LoginPageModule)
-      }
+      },
+      {
+        path: 'account',
+        loadChildren: () => import('./tabs/account/account.module').then( m => m.AccountPageModule)
+      },
+      {
+        path: 'orders',
+        loadChildren: () => import('./order/order-list/order-list.module').then( m => m.OrderListPageModule)
+      },
     ]
   },
 ];

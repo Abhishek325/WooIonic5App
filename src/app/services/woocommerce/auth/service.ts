@@ -1,7 +1,7 @@
 import { StorageService } from 'src/app/services/storage.service';
 import { HttpClient } from '@angular/common/http';
 import { LoginPayload, Token } from './interface';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 
@@ -10,16 +10,13 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  authenticated = false;
+  @Output() authenticated = new EventEmitter<boolean>();
 
   constructor(private httpClient: HttpClient, private storageService: StorageService) { }
 
   public isAuthenticated(): Promise<boolean> {
     return this.storageService.get('user').then(val => {
-      if (val === null) {
-        return false;
-      }
-      return true;
+      return val != null;
     }).catch(err => {
       throw err;
     });
@@ -30,6 +27,7 @@ export class AuthService {
   }
 
   logout() {
+    this.authenticated.emit(false);
     return this.storageService.remove('user');
   }
 }

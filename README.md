@@ -18,6 +18,8 @@ These are the main files and folders used:
 
 ### Screenshots
 
+#### Note: The images and content (products/categories) will differ based on your store configuration
+
 <img src="https://raw.githubusercontent.com/Abhishek325/WooIonicApp/main/src/screenshots/screenshot-1.png" width="200px"/> <img src="https://raw.githubusercontent.com/Abhishek325/WooIonicApp/main/src/screenshots/screenshot-2.png" width="200px" /> <img src="https://raw.githubusercontent.com/Abhishek325/WooIonicApp/main/src/screenshots/screenshot-3.png" width="200px" /> <img src="https://raw.githubusercontent.com/Abhishek325/WooIonicApp/main/src/screenshots/screenshot-4.png" width="200px" />
 
 ### Features

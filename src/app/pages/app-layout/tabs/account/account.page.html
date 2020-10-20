@@ -1,0 +1,45 @@
+<ion-header>
+  <app-toolbar title="My Account"></app-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list *ngIf="user">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-img src="{{user.avatar_url}}"></ion-img>
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <h2 style="font-size: 15px;">{{user.first_name}} {{user.last_name}}</h2>
+        <div class="secondary">{{user.email}}</div>
+      </ion-label>
+    </ion-item>
+    <ion-list-header>
+      <h4>Profile :</h4>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>User name</ion-label>
+      <ion-label class="ion-text-right secondary-color">{{user.username}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Orders placed</ion-label>
+      <ion-label class="ion-text-right secondary-color">
+        <div *ngIf="user.orders_count>0" routerLink="/user/orders">
+          {{user.orders_count}}
+        </div>
+        <div *ngIf="!user.orders_count">
+          0
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Total spent</ion-label>
+      <ion-label class="ion-text-right secondary-color">
+        <div *ngIf="user.orders_count>0">
+          ₹ {{user.total_spent}}
+        </div>
+        <div *ngIf="!user.orders_count">
+          NA
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -16,8 +16,4 @@ export class CustomerService {
   getCustomer(email: string) {
     return this.httpClient.get<Customer>(`customers/email/${email}`);
   }
-
-  getCustomerOrders(id: number) {
-    return this.httpClient.get<CustomerOrder[]>(`customers/${id}/orders`);
-  }
 }
