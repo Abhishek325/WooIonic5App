@@ -8,16 +8,17 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { CardViewComponent } from 'src/app/components/category/card-view/card-view.component';
-import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
 import { AllProductsListComponent } from 'src/app/components/product/all-products-list/all-products-list.component';
+import { SharedModule } from 'src/app/pages/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, ToolbarComponent, CardViewComponent, AllProductsListComponent]
+  declarations: [HomePage, CardViewComponent, AllProductsListComponent]
 })
 export class HomePageModule {}

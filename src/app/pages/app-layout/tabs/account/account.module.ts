@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AccountPageRoutingModule } from './account-routing.module';
 
 import { AccountPage } from './account.page';
-import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
+import { SharedModule } from 'src/app/pages/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     AccountPageRoutingModule
   ],
-  declarations: [AccountPage, ToolbarComponent]
+  declarations: [AccountPage]
 })
 export class AccountPageModule {}

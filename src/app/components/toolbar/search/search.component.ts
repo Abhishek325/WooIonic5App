@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private contextService:ContextService) { }
 
-  private getItems($event) {
+  public getItems($event) {
     const val = $event.target.value;
     if (!val) {
       this.searchMatchedItems = [];
@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  private onCancelSearch() {
+  public onCancelSearch() {
     this.searchMatchedItems = [];
     this.close.emit();
   }

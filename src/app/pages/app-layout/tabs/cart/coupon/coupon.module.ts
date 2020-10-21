@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CouponPageRoutingModule } from './coupon-routing.module';
 
 import { CouponPage } from './coupon.page';
-import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
+import { SharedModule } from 'src/app/pages/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     CouponPageRoutingModule
   ],
-  declarations: [CouponPage, ToolbarComponent]
+  declarations: [CouponPage]
 })
 export class CouponPageModule {}

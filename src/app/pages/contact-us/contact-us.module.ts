@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ContactUsPageRoutingModule } from './contact-us-routing.module';
 
 import { ContactUsPage } from './contact-us.page';
-import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     ContactUsPageRoutingModule
   ],
-  declarations: [ContactUsPage, ToolbarComponent]
+  declarations: [ContactUsPage]
 })
 export class ContactUsPageModule {}

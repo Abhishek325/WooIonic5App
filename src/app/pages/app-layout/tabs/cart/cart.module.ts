@@ -7,16 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CartPageRoutingModule } from './cart-routing.module';
 
 import { CartPage } from './cart.page';
-import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
-import { AddToCartComponent } from 'src/app/components/product/add-to-cart/add-to-cart.component';
+import { SharedModule } from 'src/app/pages/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     CartPageRoutingModule
   ],
-  declarations: [CartPage, ToolbarComponent, AddToCartComponent]
+  declarations: [CartPage]
 })
 export class CartPageModule {}

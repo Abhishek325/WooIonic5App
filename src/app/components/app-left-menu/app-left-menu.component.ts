@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/woocommerce/auth/service';
 export class AppLeftMenuComponent implements OnInit {
 
   isAuthenticated = false;
+  selectedIndex : number;
 
   public appPages = [
     {

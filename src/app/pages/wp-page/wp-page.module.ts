@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { WpPagePageRoutingModule } from './wp-page-routing.module';
 
 import { WpPagePage } from './wp-page.page';
-import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     WpPagePageRoutingModule
   ],
-  declarations: [WpPagePage, ToolbarComponent]
+  declarations: [WpPagePage]
 })
 export class WpPagePageModule {}

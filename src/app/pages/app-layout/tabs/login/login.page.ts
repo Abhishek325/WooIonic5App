@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
 
   constructor(private authservice: AuthService, private router: Router, private activatedRute: ActivatedRoute, private toastService: ToastService, private storageService: StorageService, private customerService: CustomerService) { }
 
-  authenticate(userId: string, password: string) {
+  authenticate(userId: any, password: any) {
     if (!userId || !password) {
       this.toastService.presentToast("Please fill in both the fields");
       return;

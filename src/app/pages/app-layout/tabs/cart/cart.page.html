@@ -16,8 +16,8 @@
         <small class="price">₹{{item.meta.price}} x {{item.cartInfo.quantity}}</small>
       </ion-label>
       <ion-label class="ion-text-right" style="margin-top: -1.5rem;">
-        <add-to-cart [product]="item.meta" [selectedVariation]="selectedVariation"
-          (onAdd)='onItemAdded($event,item.meta.id)' (onRemove)='onItemRemoved($event, item.meta.id)'></add-to-cart>
+        <add-to-cart [product]="item.meta" (onAdd)='onItemAdded($event,item.meta.id)'
+          (onRemove)='onItemRemoved($event, item.meta.id)'></add-to-cart>
       </ion-label>
     </ion-item>
     <ion-item class="coupon" routerLink="/home/cart/coupon">
