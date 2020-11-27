@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Woocommerce based Ionic app</title>
+    <meta name="description" content="An open source that consumes woocommerce API to run a store on hybrid app">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="mobile.css" rel="stylesheet" media="screen and (min-device-width: 800px)" />
+    <style>
+        span.badge {
+            margin-left: 0;
+            float: none;
+        }
+
+        .collection {
+            border: none;
+        }
+
+        .collection .collection-item {
+            border-bottom: none;
+            opacity: 0;
+            animation: fadeIn 0.9s 1;
+            animation-fill-mode: forwards;
+        }
+
+        .collection .collection-item:nth-child(2) {
+            animation-delay: 0.5s;   
+        }
+        .collection .collection-item:nth-child(3) {
+            animation-delay: 1s;   
+        }
+        .collection .collection-item:nth-child(4) {
+            animation-delay: 1.5s;   
+        }
+        .collection .collection-item:nth-child(5) {
+            animation-delay: 2s;   
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+        iframe {
+            width:100%;
+            border:none;
+            height:100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container hide-on-small-only"><br>
+        <div class="row">
+            <div class="col s12">
+                <h4>WooIonic5App</h4>
+                <p>This is an open source ionic template that consumes a <a href="https://woocommerce.com/"
+                        target="_blank">Woocommerce</a>
+                    based API. With this app, you can have your
+                    store setup with core features that could be scaled to any extent as per your store configurations.
+                    A ready-to-start <b>Angular</b> based ionic app to get you going quickly with your store
+                    customizations!
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m6 s12">
+                <div class="card hoverable smartphone">
+                    <div class="content">
+                        <iframe src="app.html" /></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col m6 s12">
+                <div class="valign-wrapper" style="height:700px;">
+                    <ul class="collection">
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle blue lighten-1">graphic_eq</i>
+                            <span class="title">Technology</span>
+                            <p class="grey-text">A great app evolves with right development technologies. This project
+                                is composed of
+                                <img src="https://ionicframework.com/img/meta/logo.png" alt="Ionic 5"
+                                    style="width: 15px;">
+                                <img src="https://cdn.iconscout.com/icon/free/png-256/angular-226066.png"
+                                    alt="Angluar 10" style="width: 17px;">
+                                <img src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg" alt="Sass"
+                                    style="width: 22px;">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/480px-JavaScript-logo.png"
+                                    alt="Javascript" style="width: 16px;">
+                                with advance techniques.
+                            </p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle red accent-2">code</i>
+                            <span class="title">Woocommerce</span>
+                            <p class="grey-text">Interfaces available for more than 6 of woocommerce's entities
+                                (Products, categories,
+                                customer etc) and still counting!</p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle yellow darken-1">looks</i>
+                            <span class="title">Looks & styles</span>
+                            <p class="grey-text">Multiple category and product list styles, compact product cards and
+                                built with <img src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"
+                                    alt="Sass" style="width: 22px;">
+                                providing the maximum
+                                flexibility for store theming and color scheme.</p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle green darken-1">featured_play_list</i>
+                            <span class="title">Features</span>
+                            <p class="grey-text">App sidebar menu, product with <a
+                                    href="https://docs.woocommerce.com/document/variable-product/"
+                                    target="_blank">variations</a>,
+                                contact page, orders view, social logins and high
+                                performance with cache and module based lazy loading.</p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle purple darken-1">link</i>
+                            <span class="title">Links of interest</span>
+                            <p class="grey-text">
+                                <a href="https://github.com/Abhishek325/WooIonic5App" target="_blank"
+                                    rel="noopener noreferrer">Checkout source code</a> |
+                                <a href="https://www.buymeacoffee.com/abhishek325">Donate to WooIonic5App</a>
+                            </p>
+                            <p class="grey-text" style="font-size: 12px;margin-top: 0.5rem;line-height:18px;">
+                                Not a Github user but got a bug/feature request to share? Please reach out to me on my
+                                <a href="https://www.linkedin.com/in/abhishek-ks/" target="_blank"
+                                    rel="noopener noreferrer">linkedIn</a> account.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hide-on-med-and-up">
+        <div class="smartphone">
+            <div class="content">
+                <iframe src="app.html" style="position: absolute;" /></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
